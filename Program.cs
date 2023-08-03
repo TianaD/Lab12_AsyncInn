@@ -1,4 +1,6 @@
 using Lab12_AsyncInn.Data; // incorporate data namespace to give me access to context name class
+using Lab12_AsyncInn.Models.Interfaces;
+using Lab12_AsyncInn.Models.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab12_AsyncInn
@@ -16,6 +18,9 @@ namespace Lab12_AsyncInn
             options.UseSqlServer(
                 builder.Configuration
                 .GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddTransient<iHotel, HotelService>();
+
 
             var app = builder.Build();
 

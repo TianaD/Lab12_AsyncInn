@@ -2,7 +2,7 @@
 
 Wireframe:
 
-![Wireframe](C:\Users\shaun\OneDrive\Documents\GitHub\401\Lab12_AsyncInn\assets\Wireframe.png)
+![Schema](C:\Users\shaun\OneDrive\Documents\GitHub\401\Lab12_AsyncInn\assets\Wireframe.png)
 
 Here is a possible way to reword and restructure the markdown file:
 
