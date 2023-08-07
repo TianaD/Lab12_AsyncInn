@@ -16,5 +16,7 @@ namespace Lab12_AsyncInn.Models
         public string State { get; set; }
         [Required]
         public string Phone { get; set; }
+
+        public List<Hotel_Room> Hotel_Rooms { get; set; }
     }
 }

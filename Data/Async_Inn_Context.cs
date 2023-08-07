@@ -40,5 +40,9 @@ namespace Lab12_AsyncInn.Data
 
 
         public DbSet<Lab12_AsyncInn.Models.Room> Room { get; set; } = default!;
+
+        public DbSet<Lab12_AsyncInn.Models.Hotel_Room> Hotel_Room { get; set; } = default!;
+
+        public DbSet<Lab12_AsyncInn.Models.Room_Amenity> RoomAmenity { get; set; } = default!;
     }
 }

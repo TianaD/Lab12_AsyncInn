@@ -13,8 +13,12 @@ namespace Lab12_AsyncInn
 
             // Add services to the container
             builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+            });
 
-            builder.Services.AddDbContext<Async_Inn_Context>(options => 
+            builder.Services.AddDbContext<Async_Inn_Context>(options =>
             options.UseSqlServer(
                 builder.Configuration
                 .GetConnectionString("DefaultConnection")));
