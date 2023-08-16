@@ -62,4 +62,4 @@ The tables are related by primary and foreign keys, as well as a joint entity ta
 - Room (Many) to Amenity (Many): Each room can have multiple amenities, and each amenity can be associated with multiple rooms. This is a many-to-many relationship, which is represented by the RoomAmenity joint entity table.
 
 
-##### Assissted by CHATGPT
+##### Notes generated with the assistance of CHATGPT
