@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab12_AsyncInn.Models
 {
@@ -6,8 +7,12 @@ namespace Lab12_AsyncInn.Models
     {
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public List<Room_Amenity> RoomAmenities { get; set; }
+
     }
 }

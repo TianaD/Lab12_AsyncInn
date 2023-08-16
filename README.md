@@ -2,7 +2,7 @@
 
 Wireframe:
 
-![Wireframe](C:\Users\shaun\OneDrive\Documents\GitHub\401\Lab12_AsyncInn\assets\Wireframe.png)
+![Schema](C:\Users\shaun\OneDrive\Documents\GitHub\401\Lab12_AsyncInn\assets\Wireframe.png)
 
 Here is a possible way to reword and restructure the markdown file:
 
@@ -62,4 +62,4 @@ The tables are related by primary and foreign keys, as well as a joint entity ta
 - Room (Many) to Amenity (Many): Each room can have multiple amenities, and each amenity can be associated with multiple rooms. This is a many-to-many relationship, which is represented by the RoomAmenity joint entity table.
 
 
-##### Assissted by CHATGPT
+##### Notes generated with the assistance of CHATGPT

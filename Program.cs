@@ -1,4 +1,6 @@
 using Lab12_AsyncInn.Data; // incorporate data namespace to give me access to context name class
+using Lab12_AsyncInn.Models.Interfaces;
+using Lab12_AsyncInn.Models.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab12_AsyncInn
@@ -11,11 +13,18 @@ namespace Lab12_AsyncInn
 
             // Add services to the container
             builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+            });
 
-            builder.Services.AddDbContext<Async_Inn_Context>(options => 
+            builder.Services.AddDbContext<Async_Inn_Context>(options =>
             options.UseSqlServer(
                 builder.Configuration
                 .GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddTransient<iHotel, HotelService>();
+
 
             var app = builder.Build();
 

@@ -11,5 +11,9 @@ namespace Lab12_AsyncInn.Models
 
         [Required]
         public int AmenityID { get; set; }
+
+        public Room Room { get; set; }
+
+        public Amenity Amenity { get; set; }
     }
 }

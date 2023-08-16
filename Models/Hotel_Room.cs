@@ -16,5 +16,10 @@ namespace Lab12_AsyncInn.Models
         [Required]
         public double Price { get; set; }
 
+        // navigation properties
+        public Hotel Hotel { get; set;  } // hotel room class model 
+
+        public Room Room { get; set; }
+
     }
 }

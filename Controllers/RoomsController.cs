@@ -25,21 +25,24 @@ namespace Lab12_AsyncInn.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Room>>> GetRoom()
         {
-          if (_context.Room == null)
-          {
-              return NotFound();
-          }
-            return await _context.Room.ToListAsync();
+            if (_context.Room == null)
+            {
+                return NotFound();
+            }
+            return await _context.Room
+                .Include(room => room.Hotel_Rooms)
+                .ThenInclude(hotelroom => hotelroom.Hotel)
+                .ToListAsync();
         }
 
         // GET: api/Rooms/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> GetRoom(int id)
         {
-          if (_context.Room == null)
-          {
-              return NotFound();
-          }
+            if (_context.Room == null)
+            {
+                return NotFound();
+            }
             var room = await _context.Room.FindAsync(id);
 
             if (room == null)
@@ -86,10 +89,10 @@ namespace Lab12_AsyncInn.Controllers
         [HttpPost]
         public async Task<ActionResult<Room>> PostRoom(Room room)
         {
-          if (_context.Room == null)
-          {
-              return Problem("Entity set 'Async_Inn_Context.Room'  is null.");
-          }
+            if (_context.Room == null)
+            {
+                return Problem("Entity set 'Async_Inn_Context.Room'  is null.");
+            }
             _context.Room.Add(room);
             await _context.SaveChangesAsync();
 
