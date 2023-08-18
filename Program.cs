@@ -68,7 +68,7 @@ namespace Lab12_AsyncInn
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            //https://localhost:44391/Hotel/CheckIn/1
+            // <https://localhost:44383/Hotel/CheckIn/1>
 
             app.Run();
         }
