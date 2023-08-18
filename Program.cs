@@ -2,6 +2,8 @@ using Lab12_AsyncInn.Data; // incorporate data namespace to give me access to co
 using Lab12_AsyncInn.Models.Interfaces;
 using Lab12_AsyncInn.Models.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using static System.Net.WebRequestMethods;
 
 namespace Lab12_AsyncInn
 {
@@ -25,10 +27,34 @@ namespace Lab12_AsyncInn
 
             builder.Services.AddTransient<iHotel, HotelService>();
 
+            builder.Services.AddSwaggerGen(options =>
+            {
+                // Make sure get the "using Statement"
+                options.SwaggerDoc("v1", new OpenApiInfo()
+                {
+                    Title = "YOUR PROJECT TITLE HERE",
+                    Version = "v1",
+                });
+            });
+
 
             var app = builder.Build();
 
             // app.MapGet("/", () => "Hello World!");
+
+            app.UseSwagger(options =>
+            {
+                options.RouteTemplate = "/api/{documentName}/swagger.json";
+            });
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/api/v1/swagger.json", "Async Inn");
+                options.RoutePrefix = "docs";
+            });
+
+
+            // < https://localhost:PORT/api/v1/swagger.json>
+            // <http://localhost:PORT/docs> is the actual documentation for your API.
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -42,7 +68,7 @@ namespace Lab12_AsyncInn
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            //https://localhost:44391/Hotel/CheckIn/1
+            // <https://localhost:44383/Hotel/CheckIn/1>
 
             app.Run();
         }
