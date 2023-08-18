@@ -61,5 +61,17 @@ The tables are related by primary and foreign keys, as well as a joint entity ta
 - HotelLocation (1) to Room (Many): Each hotel location can have multiple rooms, but each room belongs to only one location. This is a one-to-many relationship, which is represented by the LocationId foreign key in the Room table.
 - Room (Many) to Amenity (Many): Each room can have multiple amenities, and each amenity can be associated with multiple rooms. This is a many-to-many relationship, which is represented by the RoomAmenity joint entity table.
 
+POST adds to database
+PUT updates what is currently in database
+DELETE deletes something currenly in the database
 
-##### Notes generated with the assistance of CHATGPT
+API ROUTES:
+https://localhost:44383/api/HotelRooms
+https://localhost:44383/api/Rooms
+https://localhost:44383/api/HotelRoomsController
+https://localhost:44383/api/v1/swagger.json
+http://localhost:44383/docs
+
+ 
+ 
+ ##### Notes generated with the assistance of CHATGPT
